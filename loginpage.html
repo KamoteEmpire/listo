@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/themes/listo-theme.min.css" />
+  <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+  <link rel="stylesheet" href="css/themes/jquery.mobile.structure-1.4.5.min.css" />
+  <link rel="stylesheet" href="css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="css/jquery-ui.structure.min.css" />
+  
+  <script src="js/jquery.min.js"></script> 
+  <script src="js/jquery.mobile-1.4.5.min.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <script>
+	$(document).ready(function(){
+			$('#btnLogin').click(function(){
+				var formLogin = $("#frmLogin");
+				$.mobile.loading("show");
+				$.getJSON("http://iligtas.ph/listo/mobile/login.php?callback=?", formLogin.serialize(),function(data)
+				{
+					if (data.verified == "yes")
+					{
+					localStorage.setItem("datausername", data.username);
+					localStorage.setItem("datapassword", data.password);
+					localStorage.setItem("dataregion", data.region);
+					localStorage.setItem("dataprovince", data.province);
+					localStorage.setItem("datacity", data.city);
+					localStorage.setItem("localPreMonitorCounter", 0);
+					localStorage.setItem("localPreMonitorPercentage", 0);
+					localStorage.setItem("preMonitor-a-1", 0);
+					localStorage.setItem("preMonitor-a-2", 0);
+					localStorage.setItem("preMonitor-a-3", 0);
+					localStorage.setItem("preMonitor-a-4", 0);
+					
+					localStorage.setItem("preMonitor-b-1", 0);
+					localStorage.setItem("preMonitor-b-2", 0);
+					localStorage.setItem("preMonitor-b-3", 0);
+					localStorage.setItem("preMonitor-b-4", 0);
+					localStorage.setItem("preMonitor-b-5", 0);
+					localStorage.setItem("preMonitor-b-6", 0);
+					localStorage.setItem("preMonitor-b-7", 0);
+					localStorage.setItem("preMonitor-b-8", 0);
+					localStorage.setItem("preMonitor-b-9", 0);
+					localStorage.setItem("preMonitor-b-10", 0);
+					
+					localStorage.setItem("preMonitor-c-1", 0);
+					localStorage.setItem("preMonitor-c-2", 0);
+					localStorage.setItem("preMonitor-c-3", 0);
+					localStorage.setItem("preMonitor-c-4", 0);
+					localStorage.setItem("preMonitor-c-5", 0);
+					localStorage.setItem("preMonitor-c-6", 0);
+					localStorage.setItem("preMonitor-c-7", 0);
+					localStorage.setItem("preMonitor-c-8", 0);
+					localStorage.setItem("preMonitor-c-9", 0);
+					localStorage.setItem("preMonitor-c-10", 0);
+					localStorage.setItem("preMonitor-c-11", 0);
+					localStorage.setItem("preMonitor-c-12", 0);
+					localStorage.setItem("preMonitor-c-13", 0);
+					localStorage.setItem("preMonitor-c-14", 0);
+					localStorage.setItem("preMonitor-c-15", 0);
+					localStorage.setItem("preMonitor-c-16", 0);
+					localStorage.setItem("preMonitor-c-17", 0);
+					localStorage.setItem("preMonitor-c-18", 0);
+					localStorage.setItem("preMonitor-c-19", 0);
+					localStorage.setItem("preMonitor-c-20", 0);
+					localStorage.setItem("preMonitor-c-21", 0);
+					localStorage.setItem("preMonitor-c-22", 0);
+					localStorage.setItem("preMonitor-c-23", 0);
+					
+					localStorage.setItem("preMonitor-d-1", 0);
+					localStorage.setItem("preMonitor-d-2", 0);
+					localStorage.setItem("preMonitor-d-3", 0);
+					localStorage.setItem("preMonitor-d-4", 0);
+					localStorage.setItem("preMonitor-d-5", 0);
+					localStorage.setItem("preMonitor-d-6", 0);
+					localStorage.setItem("preMonitor-d-7", 0);
+					localStorage.setItem("preMonitor-d-8", 0);
+					localStorage.setItem("preMonitor-d-9", 0);
+					localStorage.setItem("preMonitor-d-10", 0);
+					localStorage.setItem("preMonitor-d-11", 0);
+					localStorage.setItem("preMonitor-d-12", 0);
+					localStorage.setItem("preMonitor-d-13", 0);
+					localStorage.setItem("preMonitor-d-14", 0);
+					localStorage.setItem("preMonitor-d-15", 0);
+					localStorage.setItem("preMonitor-d-16", 0);
+					localStorage.setItem("preMonitor-d-17", 0);
+					
+					localStorage.setItem("preMonitor-e-1", 0);
+					localStorage.setItem("preMonitor-e-2", 0);
+					localStorage.setItem("preMonitor-e-3", 0);
+					localStorage.setItem("preMonitor-e-4", 0);
+					localStorage.setItem("preMonitor-e-5", 0);
+					localStorage.setItem("preMonitor-e-6", 0);
+					localStorage.setItem("preMonitor-e-7", 0);
+					localStorage.setItem("preMonitor-e-8", 0);
+					localStorage.setItem("preMonitor-e-9", 0);
+					localStorage.setItem("preMonitor-e-10", 0);
+					localStorage.setItem("preMonitor-e-11", 0);
+					localStorage.setItem("preMonitor-e-12", 0);
+					localStorage.setItem("preMonitor-e-13", 0);
+					localStorage.setItem("preMonitor-e-14", 0);
+					
+					localStorage.setItem("preMonitor-f-1", 0);
+					localStorage.setItem("preMonitor-f-2", 0);
+					
+					localStorage.setItem("preMonitor-g-1", 0);
+					localStorage.setItem("preMonitor-g-2", 0);
+					localStorage.setItem("preMonitor-g-3", 0);
+					localStorage.setItem("preMonitor-g-4", 0);
+					localStorage.setItem("preMonitor-g-5", 0);
+					
+					localStorage.setItem("preMonitor-h-1", 0);
+					localStorage.setItem("preMonitor-h-2", 0);
+					localStorage.setItem("preMonitor-h-3", 0);
+					localStorage.setItem("preMonitor-h-4", 0);
+					localStorage.setItem("preMonitor-h-5", 0);
+					localStorage.setItem("preMonitor-h-6", 0);
+					localStorage.setItem("preMonitor-h-7", 0);
+					localStorage.setItem("preMonitor-h-8", 0);
+					localStorage.setItem("preMonitor-h-9", 0);
+					localStorage.setItem("preMonitor-h-10", 0);
+					localStorage.setItem("preMonitor-h-11", 0);
+					localStorage.setItem("preMonitor-h-12", 0);
+					localStorage.setItem("preMonitor-h-13", 0);
+					localStorage.setItem("preMonitor-h-14", 0);
+					localStorage.setItem("preMonitor-h-15", 0);
+					localStorage.setItem("preMonitor-h-16", 0);
+					localStorage.setItem("preMonitor-h-17", 0);
+					localStorage.setItem("preMonitor-h-18", 0);
+					localStorage.setItem("preMonitor-h-19", 0);
+					localStorage.setItem("preMonitor-h-20", 0);
+					localStorage.setItem("preMonitor-h-21", 0);
+					localStorage.setItem("preMonitor-h-22", 0);
+					localStorage.setItem("preMonitor-h-23", 0);
+					localStorage.setItem("preMonitor-h-24", 0);
+					localStorage.setItem("preMonitor-h-25", 0);
+					localStorage.setItem("preMonitor-h-26", 0);
+					localStorage.setItem("preMonitor-h-27", 0);
+					localStorage.setItem("preMonitor-h-28", 0);
+					localStorage.setItem("preMonitor-h-29", 0);
+					localStorage.setItem("preMonitor-h-30", 0);
+					localStorage.setItem("preMonitor-h-31", 0);
+					localStorage.setItem("preMonitor-h-32", 0);
+					localStorage.setItem("preMonitor-h-33", 0);
+					localStorage.setItem("preMonitor-h-34", 0);
+					localStorage.setItem("preMonitor-h-35", 0);
+					localStorage.setItem("preMonitor-h-36", 0);
+					localStorage.setItem("preMonitor-h-37", 0);
+					localStorage.setItem("preMonitor-h-38", 0);
+					localStorage.setItem("preMonitor-h-39", 0);
+					
+					localStorage.setItem("preMonitor-i-1", 0);
+					localStorage.setItem("preMonitor-i-2", 0);
+					localStorage.setItem("preMonitor-i-3", 0);
+					localStorage.setItem("preMonitor-i-4", 0);
+					localStorage.setItem("preMonitor-i-5", 0);
+					localStorage.setItem("preMonitor-i-6", 0);
+					localStorage.setItem("preMonitor-i-7", 0);
+					localStorage.setItem("preMonitor-i-8", 0);
+					localStorage.setItem("preMonitor-i-9", 0);
+					localStorage.setItem("preMonitor-i-10", 0);
+					localStorage.setItem("preMonitor-i-11", 0);
+					localStorage.setItem("preMonitor-i-12", 0);
+					localStorage.setItem("preMonitor-i-13", 0);
+					localStorage.setItem("preMonitor-i-14", 0);
+					localStorage.setItem("preMonitor-i-15", 0);
+					localStorage.setItem("preMonitor-i-16", 0);
+					localStorage.setItem("preMonitor-i-17", 0);
+					localStorage.setItem("preMonitor-i-18", 0);
+					localStorage.setItem("preMonitor-i-19", 0);
+					localStorage.setItem("preMonitor-i-20", 0);
+					localStorage.setItem("preMonitor-i-21", 0);
+					localStorage.setItem("preMonitor-i-22", 0);
+					localStorage.setItem("preMonitor-i-23", 0);
+					localStorage.setItem("preMonitor-i-24", 0);
+					localStorage.setItem("preMonitor-i-25", 0);
+					localStorage.setItem("preMonitor-i-26", 0);
+					localStorage.setItem("preMonitor-i-27", 0);
+					localStorage.setItem("preMonitor-i-28", 0);
+					localStorage.setItem("preMonitor-i-29", 0);
+					localStorage.setItem("preMonitor-i-30", 0);
+					localStorage.setItem("preMonitor-i-31", 0);
+					localStorage.setItem("preMonitor-i-32", 0);
+					localStorage.setItem("preMonitor-i-33", 0);
+					localStorage.setItem("preMonitor-i-34", 0);
+					localStorage.setItem("preMonitor-i-35", 0);
+					
+					$("#popuptextWelcome").html("<strong>Welcome to Listo "+data.city+"</strong>");	
+					$( "#popupAfterWelcome" ).popup();
+					$( "#popupAfterWelcome" ).popup( "open", { 
+					positionTo: "window",
+					transition: "slidedown" });
+					$.mobile.loading("hide");
+					location.href="home.html";
+					}
+					else{
+					$("#popuptext").html("<strong>Please check your username or password.</strong>");	
+					$( "#popupAfter" ).popup();
+					$( "#popupAfter" ).popup( "open", { 
+					positionTo: "window",
+					transition: "slidedown" });
+					$.mobile.loading("hide");
+					$( "#txtUsername" ).effect( "shake" );
+					$( "#txtPassword" ).effect( "shake" );
+					}
+				}).fail(function(data){
+					$("#popuptext").html("<strong>Error, Please contact administrator</strong>");	
+					$( "#popupAfter" ).popup();
+					$( "#popupAfter" ).popup( "open", { 
+					positionTo: "window",
+					transition: "pop" });
+					$.mobile.loading("hide");
+				});
+			});
+	});
+  </script>
+
+</head>
+<body>
+	<div data-role="page" >
+		<div data-role="header">
+			<h1>Login Page</h1>
+		</div>
+		<div role="main" class="ui-content">
+			<img src="images/listo-icon.png" style="width:95%;margin-left:auto;margin-right:auto;display:block">
+			<br/>
+			<form id="frmLogin">
+			<input id="txtUsername" name="txtUsername" type="text" placeholder="Enter Username" />
+			<input id="txtPassword" name="txtPassword" type="text" placeholder="Enter Password" />
+			</form>
+			<br/>
+			<a href="#" ><p style="text-align: center; ">Forgot Password?</p></a>
+		</div>
+		<div data-role="footer" data-position="fixed">
+		<div data-role="navbar" >
+			<ul>
+				<li><button data-icon="check" id="btnLogin">SUBMIT</button></li>
+			</ul>
+		</div>
+		</div>
+		<div data-role="popup" id="popupAfter" data-theme="d"  style="width:100%;margin-left: auto; margin-right:auto;">
+			<div data-role="header">
+				<h1>Error</h1>
+			</div>
+			<p id="popuptext" style="text-align: center;"></p>
+		</div>
+		<div data-role="popup" id="popupAfterWelcome" data-theme="d"  style="width:100%;margin-left: auto; margin-right:auto;">
+			<div data-role="header">
+				<h1>Welcome</h1>
+			</div>
+			<p id="popuptextWelcome" style="text-align: center;"></p>
+		</div>
+	</div>
+</body>
+</html>

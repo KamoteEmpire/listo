@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/themes/listo-theme.min.css" />
+  <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+  <link rel="stylesheet" href="css/themes/jquery.mobile.structure-1.4.5.min.css" /> 
+  <style>
+	meter::-webkit-meter-bar {
+    background: #EEE;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.2) inset;
+    border-radius: 3px;
+}
+
+meter::-webkit-meter-optimum-value {
+    background: #86CC00; /* Green */
+    border-radius: 3px;
+}
+
+meter::-webkit-meter-suboptimum-value {
+    background: #FFDB1A; /* Yellow */
+    border-radius: 3px;
+}
+
+meter::-webkit-meter-even-less-good-value {
+    background: #CC4600; /* Red */
+    border-radius: 3px;
+}
+  </style>
+  <script src="js/jquery.min.js"></script> 
+  <script src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script src="js/home.js"></script>
+
+</head>
+<body>
+<div data-role="page" id="mainPage" data-transition="fade">
+	<div data-role="header">
+		<h1>OPLAN L!STO</h1>
+	</div>
+	<div role="main" class="ui-content">
+		<img src="images/typhoonpath.png" style="width:95%;margin-left:auto;margin-right:auto;display:block">
+		<div ><h3 style="text-align: center;">Typhoon Path Forecast</h3></div>
+		<a href="#pagePreMonitor" class="ui-btn ui-btn-b">Critical Preparedness Actions</a>
+		<a href="#popupUnderConstruction" data-rel="popup" data-position-to="window" data-transition="slidedown" class="ui-btn ui-btn-c">Reporting Disaster Incidents</a>
+		<a href="#popupUnderConstruction" data-rel="popup" data-position-to="window" data-transition="slidedown" class="ui-btn ui-btn-d">Post Monitoring</a>
+	</div>
+	<div data-role="footer" data-position="fixed">
+	
+	</div>
+	
+	<div data-role="popup" id="popupUnderConstruction">
+	<div data-role="header" data-theme="d">
+		<h1>Note</h1>
+	</div>
+	<p>This function is still  under construction and will be available on the next update</p>
+</div>
+</div>
+
+<div data-role="page" id="pageLGU" >
+	<div>
+		
+	</div>
+
+
+
+</div>
+
+<!-- alpha page -->
+<div data-role="page" id="pagePreMonitor">
+
+	<div data-role="panel" id="panelPreMonitor" data-display="overlay" >
+		<ul data-role="listview" data-theme="b">
+			<li data-theme="b" >
+			<a href="#mainPage" >Home</a>
+			</li>
+			<li >
+			<a href="#popupUnderConstruction2" data-rel="popup" data-position-to="window" data-transition="slidedown" data-theme="d">Report</a>
+			</li>
+			<li >
+			<a href="#popupUnderConstruction2" data-rel="popup" data-position-to="window" data-transition="slidedown" data-theme="d">Post Monitoring</a>
+			</li>
+			
+		</ul>
+	</div>
+
+	<div data-role="header" data-theme="b" data-position="fixed">
+		<a href="#panelPreMonitor" class="ui-btn ui-btn-left ui-shadow ui-corner-all ui-icon-bars ui-btn-icon-notext" >Navigate</a>
+		<div><h1 id="headerPercentage" style="text-align: center;font-size: 1em;">Critical Preparedness</h3></div>
+		<a id="btnLogout"  href="#" class="ui-btn ui-btn-right ui-shadow ui-corner-all ui-icon-action ui-btn-icon-notext" >Navigate</a>
+	</div>
+	
+	
+	<div role="main" class="ui-content">
+	<meter min="0" max="149" low="50" high="90" optimum="120" value="0" style="width:100%; height:2em;" id="preMonitorMeter" >Alpha Completion</meter>
+	
+	
+	<div class="ui-grid-a">
+	<div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height: 1em; text-align: center;">Completion: <span id="txtPreMonitorPercentage" name="txtPreMonitorPercentage" >0</span>% </div></div>
+	<div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height: 1em; text-align: center;">Total: <span id="txtPreMonitorCounter" name="txtPreMonitorCounter" >0</span>/<span id="txtPreMonitorTotal" name="txtPreMonitorTotal" value="0">0</span></div></div>
+	</div>
+	
+	
+	<form id="frmPreMonitorHidden">
+		<input id="hiddenPreMonitorTyphoon" name="hiddenPreMonitorTyphoon" type="hidden" value="" />
+		<input id="hiddenPreMonitorRegion" name="hiddenPreMonitorRegion" type="hidden" value="" />
+		<input id="hiddenPreMonitorProvince" name="hiddenPreMonitorProvince" type="hidden" value="" />
+		<input id="hiddenPreMonitorCity" name="hiddenPreMonitorCity" type="hidden" value="" />
+		<input id="hiddenPreMonitorPercentage" name="hiddenPreMonitorPercentage" type="hidden" value="0" />
+		<input id="hiddenPreMonitorCounter" name="hiddenPreMonitorCounter" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-a-1" name="hiddenpreMonitor-a-1" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-a-2" name="hiddenpreMonitor-a-2" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-a-3" name="hiddenpreMonitor-a-3" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-a-4" name="hiddenpreMonitor-a-4" type="hidden" value="0" />
+		
+		<input id="hiddenpreMonitor-b-1" name="hiddenpreMonitor-b-1" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-b-2" name="hiddenpreMonitor-b-2" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-b-3" name="hiddenpreMonitor-b-3" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-b-4" name="hiddenpreMonitor-b-4" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-b-5" name="hiddenpreMonitor-b-5" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-b-6" name="hiddenpreMonitor-b-6" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-b-7" name="hiddenpreMonitor-b-7" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-b-8" name="hiddenpreMonitor-b-8" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-b-9" name="hiddenpreMonitor-b-9" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-b-10" name="hiddenpreMonitor-b-10" type="hidden" value="0" />
+		
+		<input id="hiddenpreMonitor-c-1" name="hiddenpreMonitor-c-1" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-c-2" name="hiddenpreMonitor-c-2" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-c-3" name="hiddenpreMonitor-c-3" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-c-4" name="hiddenpreMonitor-c-4" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-c-5" name="hiddenpreMonitor-c-5" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-c-6" name="hiddenpreMonitor-c-6" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-c-7" name="hiddenpreMonitor-c-7" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-c-8" name="hiddenpreMonitor-c-8" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-c-9" name="hiddenpreMonitor-c-9" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-c-10" name="hiddenpreMonitor-c-10" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-c-11" name="hiddenpreMonitor-c-11" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-c-12" name="hiddenpreMonitor-c-12" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-c-13" name="hiddenpreMonitor-c-13" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-c-14" name="hiddenpreMonitor-c-14" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-c-15" name="hiddenpreMonitor-c-15" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-c-16" name="hiddenpreMonitor-c-16" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-c-17" name="hiddenpreMonitor-c-17" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-c-18" name="hiddenpreMonitor-c-18" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-c-19" name="hiddenpreMonitor-c-19" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-c-20" name="hiddenpreMonitor-c-20" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-c-21" name="hiddenpreMonitor-c-21" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-c-22" name="hiddenpreMonitor-c-22" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-c-23" name="hiddenpreMonitor-c-23" type="hidden" value="0" />
+		
+		<input id="hiddenpreMonitor-d-1" name="hiddenpreMonitor-d-1" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-d-2" name="hiddenpreMonitor-d-2" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-d-3" name="hiddenpreMonitor-d-3" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-d-4" name="hiddenpreMonitor-d-4" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-d-5" name="hiddenpreMonitor-d-5" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-d-6" name="hiddenpreMonitor-d-6" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-d-7" name="hiddenpreMonitor-d-7" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-d-8" name="hiddenpreMonitor-d-8" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-d-9" name="hiddenpreMonitor-d-9" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-d-10" name="hiddenpreMonitor-d-10" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-d-11" name="hiddenpreMonitor-d-11" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-d-12" name="hiddenpreMonitor-d-12" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-d-13" name="hiddenpreMonitor-d-13" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-d-14" name="hiddenpreMonitor-d-14" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-d-15" name="hiddenpreMonitor-d-15" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-d-16" name="hiddenpreMonitor-d-16" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-d-17" name="hiddenpreMonitor-d-17" type="hidden" value="0" />
+		
+		<input id="hiddenpreMonitor-e-1" name="hiddenpreMonitor-e-1" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-e-2" name="hiddenpreMonitor-e-2" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-e-3" name="hiddenpreMonitor-e-3" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-e-4" name="hiddenpreMonitor-e-4" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-e-5" name="hiddenpreMonitor-e-5" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-e-6" name="hiddenpreMonitor-e-6" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-e-7" name="hiddenpreMonitor-e-7" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-e-8" name="hiddenpreMonitor-e-8" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-e-9" name="hiddenpreMonitor-e-9" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-e-10" name="hiddenpreMonitor-e-10" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-e-11" name="hiddenpreMonitor-e-11" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-e-12" name="hiddenpreMonitor-e-12" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-e-13" name="hiddenpreMonitor-e-13" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-e-14" name="hiddenpreMonitor-e-14" type="hidden" value="0" />
+		
+		<input id="hiddenpreMonitor-f-1" name="hiddenpreMonitor-f-1" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-f-2" name="hiddenpreMonitor-f-2" type="hidden" value="0" />
+		
+		<input id="hiddenpreMonitor-g-1" name="hiddenpreMonitor-g-1" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-g-2" name="hiddenpreMonitor-g-2" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-g-3" name="hiddenpreMonitor-g-3" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-g-4" name="hiddenpreMonitor-g-4" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-g-5" name="hiddenpreMonitor-g-5" type="hidden" value="0" />
+		
+		<input id="hiddenpreMonitor-h-1" name="hiddenpreMonitor-h-1" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-h-2" name="hiddenpreMonitor-h-2" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-h-3" name="hiddenpreMonitor-h-3" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-h-4" name="hiddenpreMonitor-h-4" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-h-5" name="hiddenpreMonitor-h-5" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-h-6" name="hiddenpreMonitor-h-6" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-h-7" name="hiddenpreMonitor-h-7" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-h-8" name="hiddenpreMonitor-h-8" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-h-9" name="hiddenpreMonitor-h-9" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-h-10" name="hiddenpreMonitor-h-10" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-h-11" name="hiddenpreMonitor-h-11" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-h-12" name="hiddenpreMonitor-h-12" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-h-13" name="hiddenpreMonitor-h-13" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-h-14" name="hiddenpreMonitor-h-14" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-h-15" name="hiddenpreMonitor-h-15" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-h-16" name="hiddenpreMonitor-h-16" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-h-17" name="hiddenpreMonitor-h-17" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-h-18" name="hiddenpreMonitor-h-18" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-h-19" name="hiddenpreMonitor-h-19" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-h-20" name="hiddenpreMonitor-h-20" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-h-21" name="hiddenpreMonitor-h-21" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-h-22" name="hiddenpreMonitor-h-22" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-h-23" name="hiddenpreMonitor-h-23" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-h-24" name="hiddenpreMonitor-h-24" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-h-25" name="hiddenpreMonitor-h-25" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-h-26" name="hiddenpreMonitor-h-26" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-h-27" name="hiddenpreMonitor-h-27" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-h-28" name="hiddenpreMonitor-h-28" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-h-29" name="hiddenpreMonitor-h-29" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-h-30" name="hiddenpreMonitor-h-30" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-h-31" name="hiddenpreMonitor-h-31" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-h-32" name="hiddenpreMonitor-h-32" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-h-33" name="hiddenpreMonitor-h-33" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-h-34" name="hiddenpreMonitor-h-34" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-h-35" name="hiddenpreMonitor-h-35" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-h-36" name="hiddenpreMonitor-h-36" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-h-37" name="hiddenpreMonitor-h-37" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-h-38" name="hiddenpreMonitor-h-38" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-h-39" name="hiddenpreMonitor-h-39" type="hidden" value="0" />
+		
+		<input id="hiddenpreMonitor-i-1" name="hiddenpreMonitor-i-1" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-i-2" name="hiddenpreMonitor-i-2" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-i-3" name="hiddenpreMonitor-i-3" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-i-4" name="hiddenpreMonitor-i-4" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-i-5" name="hiddenpreMonitor-i-5" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-i-6" name="hiddenpreMonitor-i-6" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-i-7" name="hiddenpreMonitor-i-7" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-i-8" name="hiddenpreMonitor-i-8" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-i-9" name="hiddenpreMonitor-i-9" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-i-10" name="hiddenpreMonitor-i-10" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-i-11" name="hiddenpreMonitor-i-11" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-i-12" name="hiddenpreMonitor-i-12" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-i-13" name="hiddenpreMonitor-i-13" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-i-14" name="hiddenpreMonitor-i-14" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-i-15" name="hiddenpreMonitor-i-15" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-i-16" name="hiddenpreMonitor-i-16" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-i-17" name="hiddenpreMonitor-i-17" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-i-18" name="hiddenpreMonitor-i-18" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-i-19" name="hiddenpreMonitor-i-19" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-i-20" name="hiddenpreMonitor-i-20" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-i-21" name="hiddenpreMonitor-i-21" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-i-22" name="hiddenpreMonitor-i-22" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-i-23" name="hiddenpreMonitor-i-23" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-i-24" name="hiddenpreMonitor-i-24" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-i-25" name="hiddenpreMonitor-i-25" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-i-26" name="hiddenpreMonitor-i-26" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-i-27" name="hiddenpreMonitor-i-27" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-i-28" name="hiddenpreMonitor-i-28" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-i-29" name="hiddenpreMonitor-i-29" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-i-30" name="hiddenpreMonitor-i-30" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-i-31" name="hiddenpreMonitor-i-31" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-i-32" name="hiddenpreMonitor-i-32" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-i-33" name="hiddenpreMonitor-i-33" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-i-34" name="hiddenpreMonitor-i-34" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-i-35" name="hiddenpreMonitor-i-35" type="hidden" value="0" />
+		
+	</form>
+	
+		<div data-role="collapsibleset" data-inset="false">
+			<div data-role="collapsible" data-theme="c">
+				<h2>Box A</h2>
+					<ul data-role="listview" data-divider-theme="c">
+						<li data-role="list-divider"><strong>A LIST OF DIRECTIVES DURING A DISASTER</strong></li>
+						<input type="checkbox" checked="" name="preMonitor-a-1" id="preMonitor-a-1" data-mini="true">
+						<label for="preMonitor-a-1">Cancellation of Travel Authorities of Personnel</label>
+						<input type="checkbox" name="preMonitor-a-2" id="preMonitor-a-2" data-mini="true">
+						<label for="preMonitor-a-2">Preparation of pre-disaster risk assessment</label>
+						<input type="checkbox" name="preMonitor-a-3" id="preMonitor-a-3" data-mini="true">
+						<label for="preMonitor-a-3">Heightening reponse and early warning</label>
+						<input type="checkbox" name="preMonitor-a-4" id="preMonitor-a-4" data-mini="true">
+						<label for="preMonitor-a-4">Monitoring typhoon path and intensity</label>
+					</ul>
+			</div>
+			
+			<div data-role="collapsible" data-theme="c" >
+				<h2>Box B </h2>
+					<ul data-role="listview" data-divider-theme="c">
+						<li data-role="list-divider"><strong>MEETING THE AGENDA IN COVENING THE LDRRMC</strong></li>
+						<input type="checkbox" name="preMonitor-b-1" id="preMonitor-b-1" data-mini="true">
+						<label for="preMonitor-b-1">Typhoon path and possible impact/s</label>
+						<input type="checkbox" name="preMonitor-b-2" id="preMonitor-b-2" data-mini="true">
+						<label for="preMonitor-b-2">Number of possible affected communities</label>
+						
+						<li data-role="list-divider">Incident Command System</li>
+						<input type="checkbox" name="preMonitor-b-3" id="preMonitor-b-3" data-mini="true">
+						<label for="preMonitor-b-3">Identify Incident Commander</label>
+						
+						<li data-role="list-divider">Composition and Tasking</li>
+						<input type="checkbox" name="preMonitor-b-4" id="preMonitor-b-4" data-mini="true">
+						<label for="preMonitor-b-4">Administrative and logistical support</label>
+						<input type="checkbox" name="preMonitor-b-5" id="preMonitor-b-5" data-mini="true">
+						<label for="preMonitor-b-5">Security, lifeline, and SRR Cluster</label>
+						<input type="checkbox" name="preMonitor-b-6" id="preMonitor-b-6" data-mini="true">
+						<label for="preMonitor-b-6">Humanitarian Cluster</label>
+						<input type="checkbox" name="preMonitor-b-7" id="preMonitor-b-7" data-mini="true">
+						<label for="preMonitor-b-7">Information and Awareness Cluster</label>
+						
+						<li data-role="list-divider"></li>
+						<input type="checkbox" name="preMonitor-b-8" id="preMonitor-b-8" data-mini="true">
+						<label for="preMonitor-b-8">Availability of the LDRRM Fund</label>
+						<input type="checkbox" name="preMonitor-b-9" id="preMonitor-b-9" data-mini="true">
+						<label for="preMonitor-b-9">Prepositioning and readiness of resources</label>
+						<input type="checkbox" name="preMonitor-b-10" id="preMonitor-b-10" data-mini="true">
+						<label for="preMonitor-b-10">Daily briefing, debriefing updates and schedules</label>
+					</ul>	
+			</div>
+			<div data-role="collapsible" data-theme="d" >
+				<h2>Box C </h2>
+					<ul data-role="listview" data-divider-theme="d">
+						<li data-role="list-divider"><strong>LIST OF RESOURCES NEEDED BY CLUSTER I (SRR TEAM)</strong></li>
+						<li data-role="list-divider">Supplies</li>
+						<input type="checkbox" name="preMonitor-c-1" id="preMonitor-c-1" data-mini="true">
+						<label for="preMonitor-c-1">First aid kit and vaccines</label>
+						<input type="checkbox" name="preMonitor-c-2" id="preMonitor-c-2" data-mini="true">
+						<label for="preMonitor-c-2">Cadaver Bags</label>
+						
+						<li data-role="list-divider">Equipment</li>
+						<input type="checkbox" name="preMonitor-c-3" id="preMonitor-c-3" data-mini="true">
+						<label for="preMonitor-c-3">Boats/vans/trucks/buses</label>
+						<input type="checkbox" name="preMonitor-c-4" id="preMonitor-c-4" data-mini="true">
+						<label for="preMonitor-c-4">Ambulance/amphibian vehicle/backhoe/dump truck/fire trucks/crawler/tractor/scoop loader (may be borrowed from other LGUs or NGAs)</label>
+						<input type="checkbox" name="preMonitor-c-5" id="preMonitor-c-5" data-mini="true">
+						<label for="preMonitor-c-5">Siren</label>
+						<input type="checkbox" name="preMonitor-c-6" id="preMonitor-c-6" data-mini="true">
+						<label for="preMonitor-c-6">Megaphone</label>
+						<input type="checkbox" name="preMonitor-c-7" id="preMonitor-c-7" data-mini="true">
+						<label for="preMonitor-c-7">Whistle</label>
+						<input type="checkbox" name="preMonitor-c-8" id="preMonitor-c-8" data-mini="true">
+						<label for="preMonitor-c-8">Two-way radio, GPS device, and other communication equipment (consider satellite phone)</label>
+						<input type="checkbox" name="preMonitor-c-9" id="preMonitor-c-9" data-mini="true">
+						<label for="preMonitor-c-9">Ropes and throw bags</label>
+						<input type="checkbox" name="preMonitor-c-10" id="preMonitor-c-10" data-mini="true">
+						<label for="preMonitor-c-10">Search light</label>
+						<input type="checkbox" name="preMonitor-c-11" id="preMonitor-c-11" data-mini="true">
+						<label for="preMonitor-c-11">Ladders</label>
+						<input type="checkbox" name="preMonitor-c-12" id="preMonitor-c-12" data-mini="true">
+						<label for="preMonitor-c-12">Protective gears (helmet and life vest)</label>
+						<input type="checkbox" name="preMonitor-c-13" id="preMonitor-c-13" data-mini="true">
+						<label for="preMonitor-c-13">Reflectorized vest</label>
+						<input type="checkbox" name="preMonitor-c-14" id="preMonitor-c-14" data-mini="true">
+						<label for="preMonitor-c-14">Extrication kit (spine board,shovel,chainsaw,jack hammer or alternative digging device)</label>
+						<input type="checkbox" name="preMonitor-c-15" id="preMonitor-c-15" data-mini="true">
+						<label for="preMonitor-c-15">Chainsaw,bolo,shovel,water pump</label>
+						<input type="checkbox" name="preMonitor-c-16" id="preMonitor-c-16" data-mini="true">
+						<label for="preMonitor-c-16">Mobile water treatment</label>
+						<input type="checkbox" name="preMonitor-c-17" id="preMonitor-c-17" data-mini="true">
+						<label for="preMonitor-c-17">Caution Tape</label>
+						<input type="checkbox" name="preMonitor-c-18" id="preMonitor-c-18" data-mini="true">
+						<label for="preMonitor-c-18">K9 unit (if available)</label>
+						<input type="checkbox" name="preMonitor-c-19" id="preMonitor-c-19" data-mini="true">
+						<label for="preMonitor-c-19">Barricade</label>
+						
+						<li data-role="list-divider">Stockpile</li>
+						<input type="checkbox" name="preMonitor-c-20" id="preMonitor-c-20" data-mini="true">
+						<label for="preMonitor-c-20">Gasoline and extra batteries</label>
+						<input type="checkbox" name="preMonitor-c-21" id="preMonitor-c-21" data-mini="true">
+						<label for="preMonitor-c-21">Portable generator,solar-powered generator,and flashlights</label>
+						<input type="checkbox" name="preMonitor-c-22" id="preMonitor-c-22" data-mini="true">
+						<label for="preMonitor-c-22">Portable water</label>
+						<input type="checkbox" name="preMonitor-c-23" id="preMonitor-c-23" data-mini="true">
+						<label for="preMonitor-c-23">Food  packs (rice, canned goods, noodle, ready-to-eat meals)</label>
+						
+					</ul>	
+			</div>
+			
+			<div data-role="collapsible" data-theme="d" >
+				<h2>Box D</h2>
+					<ul data-role="listview" data-divider-theme="d">
+						<li data-role="list-divider"><strong>LIST OF RESOURCES NEEDED BY CLUSTER 2 (HUMANITARIAN TEAM)</strong></li>
+						<li data-role="list-divider">Supplies</li>
+						<input type="checkbox" name="preMonitor-d-1" id="preMonitor-d-1" data-mini="true">
+						<label for="preMonitor-d-1">Registration logbook</label>
+						
+						<li data-role="list-divider">Equipment</li>
+						<input type="checkbox" name="preMonitor-d-2" id="preMonitor-d-2" data-mini="true">
+						<label for="preMonitor-d-2">Standby vehicles</label>
+						<input type="checkbox" name="preMonitor-d-3" id="preMonitor-d-3" data-mini="true">
+						<label for="preMonitor-d-3">Megaphone</label>
+						<input type="checkbox" name="preMonitor-d-4" id="preMonitor-d-4" data-mini="true">
+						<label for="preMonitor-d-4">Whistle</label>
+						<input type="checkbox" name="preMonitor-d-5" id="preMonitor-d-5" data-mini="true">
+						<label for="preMonitor-d-5">Two-way radio and other communication equipment</label>
+						<input type="checkbox" name="preMonitor-d-6" id="preMonitor-d-6" data-mini="true">
+						<label for="preMonitor-d-6">Flashlight</label>
+						<input type="checkbox" name="preMonitor-d-7" id="preMonitor-d-7" data-mini="true">
+						<label for="preMonitor-d-7">TV or radio</label>
+						
+						<li data-role="list-divider">Stockpile</li>
+						<input type="checkbox" name="preMonitor-d-8" id="preMonitor-d-8" data-mini="true">
+						<label for="preMonitor-d-8">First aid kits/medicine</label>
+						<input type="checkbox" name="preMonitor-d-9" id="preMonitor-d-9" data-mini="true">
+						<label for="preMonitor-d-9">Food packs (rice,canned goods,noodles,ready-to-eat meals)</label>
+						<input type="checkbox" name="preMonitor-d-10" id="preMonitor-d-10" data-mini="true">
+						<label for="preMonitor-d-10">Portable water</label>
+						<input type="checkbox" name="preMonitor-d-11" id="preMonitor-d-11" data-mini="true">
+						<label for="preMonitor-d-11">Hygiene kit (soap,shampoo,alcohol,toothbrush,toothpaste,sanitary pads,deodorant)</label>
+						<input type="checkbox" name="preMonitor-d-12" id="preMonitor-d-12" data-mini="true">
+						<label for="preMonitor-d-12">Clothing (jacket,raincoat,hard hat,boots)</label>
+						<input type="checkbox" name="preMonitor-d-13" id="preMonitor-d-13" data-mini="true">
+						<label for="preMonitor-d-13">Gasoline and extra batteries</label>
+						<input type="checkbox" name="preMonitor-d-14" id="preMonitor-d-14" data-mini="true">
+						<label for="preMonitor-d-14">Portable generator and flashlights</label>
+						<input type="checkbox" name="preMonitor-d-15" id="preMonitor-d-15" data-mini="true">
+						<label for="preMonitor-d-15">Beds and beddings</label>
+						<input type="checkbox" name="preMonitor-d-16" id="preMonitor-d-16" data-mini="true">
+						<label for="preMonitor-d-16">Portable toilets</label>
+						<input type="checkbox" name="preMonitor-d-17" id="preMonitor-d-17" data-mini="true">
+						<label for="preMonitor-d-17">Mosquito nets</label>
+					</ul>	
+			</div>
+			
+			<div data-role="collapsible" data-theme="d" >
+				<h2>Box E</h2>
+					<ul data-role="listview" data-divider-theme="d">
+						<li data-role="list-divider"><strong>LIST OF RESOURCES NEEDED BY CLUSTER 3 (INFORMATION NAD AWARENESS TEAM)</strong></li>
+						<li data-role="list-divider">Data and Information</li>
+						<input type="checkbox" name="preMonitor-e-1" id="preMonitor-e-1" data-mini="true">
+						<label for="preMonitor-e-1">Hazard and risk maps to include Social Vulnerability Assessment, and potential flush points maps</label>
+						<input type="checkbox" name="preMonitor-e-2" id="preMonitor-e-2" data-mini="true">
+						<label for="preMonitor-e-2">Directory/contact numbers of key local and national DRRM officials, TV, and radio stations, school principals/administrators</label>
+						<input type="checkbox" name="preMonitor-e-3" id="preMonitor-e-3" data-mini="true">
+						<label for="preMonitor-e-3">Advisory from PAGASA</label>
+						<input type="checkbox" name="preMonitor-e-4" id="preMonitor-e-4" data-mini="true">
+						<label for="preMonitor-e-4">Template of PSAs (Public Service Announcements)</label>
+						
+						<li data-role="list-divider">Equipment</li>
+						<input type="checkbox" name="preMonitor-e-5" id="preMonitor-e-5" data-mini="true">
+						<label for="preMonitor-e-5">Centralized Hotline (operated and monitored by the Command Center)</label>
+						<input type="checkbox" name="preMonitor-e-6" id="preMonitor-e-6" data-mini="true">
+						<label for="preMonitor-e-6">Vehicles</label>
+						<input type="checkbox" name="preMonitor-e-7" id="preMonitor-e-7" data-mini="true">
+						<label for="preMonitor-e-7">Siren/Batingaw</label>
+						<input type="checkbox" name="preMonitor-e-8" id="preMonitor-e-8" data-mini="true">
+						<label for="preMonitor-e-8">Telephone/fax machine/internet connection</label>
+						<input type="checkbox" name="preMonitor-e-9" id="preMonitor-e-9" data-mini="true">
+						<label for="preMonitor-e-9">Megaphone</label>
+						<input type="checkbox" name="preMonitor-e-10" id="preMonitor-e-10" data-mini="true">
+						<label for="preMonitor-e-10">Two-way radio, GPS device, and other communication equiment (consider sattelite phone)</label>
+						<input type="checkbox" name="preMonitor-e-11" id="preMonitor-e-11" data-mini="true">
+						<label for="preMonitor-e-11">Flashlight</label>
+						<input type="checkbox" name="preMonitor-e-12" id="preMonitor-e-12" data-mini="true">
+						<label for="preMonitor-e-12">Transistor Radio (single frequency)</label>
+						
+						<li data-role="list-divider">Stockpile</li>
+						<input type="checkbox" name="preMonitor-e-13" id="preMonitor-e-13" data-mini="true">
+						<label for="preMonitor-e-13">Gasoline nad extra batteries</label>
+						<input type="checkbox" name="preMonitor-e-14" id="preMonitor-e-14" data-mini="true">
+						<label for="preMonitor-e-14">Portable generator and flashlights</label>
+						
+					</ul>	
+			</div>
+			
+			<div data-role="collapsible" data-theme="c" >
+				<h2>Box F</h2>
+					<ul data-role="listview" data-divider-theme="c">
+						<li data-role="list-divider"><strong>GUIDELINES IN UTILIZING THE LDRRM FUND</strong></li>
+						<input type="checkbox" name="preMonitor-f-1" id="preMonitor-f-1" data-mini="true">
+						<label for="preMonitor-f-1">Section 21 of RA No. 10121 provides that the General Fund amounting to not less than five percent (5%) of the estimated revenue from regular sources shall be set aside LDRRM Fund. Thirth percent (30%) of the LDRRMF shall be set aside for the Quick Response Fund (QRF) and 70% for disaster prevention and mitigation, response, rehabilitation and recovery.</label>
+						<input type="checkbox" name="preMonitor-f-2" id="preMonitor-f-2" data-mini="true">
+						<label for="preMonitor-f-2">The release and use of the 30% QRF shall be supported by the local sanggunian declaring LGU under the state of calamity or a Presidential declaration of state of calamity upon recommendation of the NDRRMC.</label>	
+					</ul>	
+			</div>
+			
+			<div data-role="collapsible" data-theme="d" >
+				<h2>Box G</h2>
+					<ul data-role="listview" data-divider-theme="d">
+						<li data-role="list-divider"><strong>HIGHLY VULNERABLE COMMUNITIES INCLUDE, BUT ARE NOT LIMITED TO:</strong></li>
+						<input type="checkbox" name="preMonitor-g-1" id="preMonitor-g-1" data-mini="true">
+						<label for="preMonitor-g-1">Landslide-prone areas</label>
+						<input type="checkbox" name="preMonitor-g-2" id="preMonitor-g-2" data-mini="true">
+						<label for="preMonitor-g-2">Coastal and island communities</label>
+						<input type="checkbox" name="preMonitor-g-3" id="preMonitor-g-3" data-mini="true">
+						<label for="preMonitor-g-3">Communities near river banks and waterways</label>
+						<input type="checkbox" name="preMonitor-g-4" id="preMonitor-g-4" data-mini="true">
+						<label for="preMonitor-g-4">Flood-prone areas</label>
+						<input type="checkbox" name="preMonitor-g-5" id="preMonitor-g-5" data-mini="true">
+						<label for="preMonitor-g-5">Storm surge-prone areas</label>
+					</ul>	
+			</div>
+			
+			<div data-role="collapsible" data-theme="d" >
+				<h2>Box H</h2>
+					<ul data-role="listview" data-divider-theme="d">
+						<li data-role="list-divider"><strong>GUIDELINES FOR THE DEPLOYMENT OF CLUSTER I TEAM</strong></li>
+						<li data-role="list-divider">UPON RECEIPT OF ALERT/BEFORE THE TYPHOON</li>
+						<li data-role="list-divider">Search,Rescue,and Retrieval</li>
+						<input type="checkbox" name="preMonitor-h-1" id="preMonitor-h-1" data-mini="true">
+						<label for="preMonitor-h-1">Deliver portable water to the evacuation center</label>
+						<input type="checkbox" name="preMonitor-h-2" id="preMonitor-h-2" data-mini="true">
+						<label for="preMonitor-h-2">Provide updates on readiness of personnel and equipment</label>
+						<input type="checkbox" name="preMonitor-h-3" id="preMonitor-h-3" data-mini="true">
+						<label for="preMonitor-h-3">Mobilize volunteers (Tanods, BPATs, Kabalikat, Fire Brigade, Red Cross, NSTP, etc.)</label>
+						<input type="checkbox" name="preMonitor-h-4" id="preMonitor-h-4" data-mini="true">
+						<label for="preMonitor-h-4">Conduct rescue and evacuation</label>
+						
+						<li data-role="list-divider">Security Teams</li>
+						<input type="checkbox" name="preMonitor-h-5" id="preMonitor-h-5" data-mini="true">
+						<label for="preMonitor-h-5">Provides updates on status of public safety</label>
+						<input type="checkbox" name="preMonitor-h-6" id="preMonitor-h-6" data-mini="true">
+						<label for="preMonitor-h-6">Maintain peace and order to prevent looting</label>
+						<input type="checkbox" name="preMonitor-h-7" id="preMonitor-h-7" data-mini="true">
+						<label for="preMonitor-h-7">Secure jail facilities</label>
+						<input type="checkbox" name="preMonitor-h-8" id="preMonitor-h-8" data-mini="true">
+						<label for="preMonitor-h-8">Patrol communities and evacuation centers</label>
+						
+						<li data-role="list-divider">Medical Teams</li>
+						<input type="checkbox" name="preMonitor-h-9" id="preMonitor-h-9" data-mini="true">
+						<label for="preMonitor-h-9">Provide medical assistance to evacuation centers and affected areas</label>
+						<input type="checkbox" name="preMonitor-h-10" id="preMonitor-h-10" data-mini="true">
+						<label for="preMonitor-h-10">Ensure sufficient medicines/supplies in the evacuation centers and affected areas</label>
+						<input type="checkbox" name="preMonitor-h-11" id="preMonitor-h-11" data-mini="true">
+						<label for="preMonitor-h-11">Provide psycho-social care (needs) to affected communities as needed</label>
+						
+						<li data-role="list-divider">Clearing Operations Teams</li>
+						<input type="checkbox" name="preMonitor-h-12" id="preMonitor-h-12" data-mini="true">
+						<label for="preMonitor-h-12">Take down billboards</label>
+						<input type="checkbox" name="preMonitor-h-13" id="preMonitor-h-13" data-mini="true">
+						<label for="preMonitor-h-13">Prune trees</label>
+						<input type="checkbox" name="preMonitor-h-14" id="preMonitor-h-14" data-mini="true">
+						<label for="preMonitor-h-14">Clear canals</label>
+						<input type="checkbox" name="preMonitor-h-15" id="preMonitor-h-15" data-mini="true">
+						<label for="preMonitor-h-15">Ensure unobstucted routes for the faster delivery of relief goods/supplies/equipment</label>
+						<input type="checkbox" name="preMonitor-h-16" id="preMonitor-h-16" data-mini="true">
+						<label for="preMonitor-h-16">Deploy teams to monitor landslide-prone areas</label>
+						<input type="checkbox" name="preMonitor-h-17" id="preMonitor-h-17" data-mini="true">
+						<label for="preMonitor-h-17">Assess other structure or places as additional to the pre-identified evacuation centers</label>
+						<input type="checkbox" name="preMonitor-h-18" id="preMonitor-h-18" data-mini="true">
+						<label for="preMonitor-h-18">Ensure adequate markers that would guide evacuees and operation teams</label>
+						
+						<li data-role="list-divider">DURING THE TYPHOON</li>
+						<input type="checkbox" name="preMonitor-h-19" id="preMonitor-h-19" data-mini="true">
+						<label for="preMonitor-h-19">Advise all teams to standby</label>
+						
+						<li data-role="list-divider">AFTER THE TYPHOON</li>
+						<li data-role="list-divider">Search, Rescue and Retrival</li>
+						<input type="checkbox" name="preMonitor-h-20" id="preMonitor-h-20" data-mini="true">
+						<label for="preMonitor-h-20">Deliver portable water to the evacuation center</label>
+						<input type="checkbox" name="preMonitor-h-21" id="preMonitor-h-21" data-mini="true">
+						<label for="preMonitor-h-21">Continue providing updates on readiness of personnel and equipment</label>
+						<input type="checkbox" name="preMonitor-h-22" id="preMonitor-h-22" data-mini="true">
+						<label for="preMonitor-h-22">Continue mobilizing volunteers (Tanods, BPATs, Kabalikat, Fire Brigade, Red Cross, NSTP, etc.)</label>
+						<input type="checkbox" name="preMonitor-h-23" id="preMonitor-h-23" data-mini="true">
+						<label for="preMonitor-h-23">Continue conduct of rescue and evacuation</label>
+						<input type="checkbox" name="preMonitor-h-24" id="preMonitor-h-24" data-mini="true">
+						<label for="preMonitor-h-24">Provide head count of injured, missing and other casualities</label>
+						<input type="checkbox" name="preMonitor-h-25" id="preMonitor-h-25" data-mini="true">
+						<label for="preMonitor-h-25">Conduct retrieval of dead bodies</label>
+						<input type="checkbox" name="preMonitor-h-26" id="preMonitor-h-26" data-mini="true">
+						<label for="preMonitor-h-26">Coordinate with funeral parlors to manage dead bodies</label>
+						
+						<li data-role="list-divider">Security Teams</li>
+						<input type="checkbox" name="preMonitor-h-27" id="preMonitor-h-27" data-mini="true">
+						<label for="preMonitor-h-27">Continue providing updates on status of public safety</label>
+						<input type="checkbox" name="preMonitor-h-28" id="preMonitor-h-28" data-mini="true">
+						<label for="preMonitor-h-28">Continue maintaining peace and order to prevent looting</label>
+						<input type="checkbox" name="preMonitor-h-29" id="preMonitor-h-29" data-mini="true">
+						<label for="preMonitor-h-29">Continue securing jail facilities</label>
+						<input type="checkbox" name="preMonitor-h-30" id="preMonitor-h-30" data-mini="true">
+						<label for="preMonitor-h-30">Continue patrolling communities</label>
+						
+						<li data-role="list-divider">Medical Teams</li>
+						<input type="checkbox" name="preMonitor-h-31" id="preMonitor-h-31" data-mini="true">
+						<label for="preMonitor-h-31">Coordinate with district or provincial hospitals for admission of injured individuals</label>
+						<input type="checkbox" name="preMonitor-h-32" id="preMonitor-h-32" data-mini="true">
+						<label for="preMonitor-h-32">Continue providing medical assistance to evacuation centers and affected areas</label>
+						<input type="checkbox" name="preMonitor-h-33" id="preMonitor-h-33" data-mini="true">
+						<label for="preMonitor-h-33">Continue ensuring sufficient medicines/supplies in the evacuation centers and affected areas</label>
+						<input type="checkbox" name="preMonitor-h-34" id="preMonitor-h-34" data-mini="true">
+						<label for="preMonitor-h-34">Continue providing psycho-social care (needs) to affected communities as needed</label>
+						
+						<li data-role="list-divider">Clearing Operation Teams</li>
+						<input type="checkbox" name="preMonitor-h-35" id="preMonitor-h-35" data-mini="true">
+						<label for="preMonitor-h-35">Cut uprooted trees</label>
+						<input type="checkbox" name="preMonitor-h-36" id="preMonitor-h-36" data-mini="true">
+						<label for="preMonitor-h-36">Start clearing roads</label>
+						<input type="checkbox" name="preMonitor-h-37" id="preMonitor-h-37" data-mini="true">
+						<label for="preMonitor-h-37">Assist SRR teams in searching for victims trapped in collapsed structures</label>
+						<input type="checkbox" name="preMonitor-h-38" id="preMonitor-h-38" data-mini="true">
+						<label for="preMonitor-h-38">Continue ensuring the safety of routes of the returning evacuees</label>
+						<input type="checkbox" name="preMonitor-h-39" id="preMonitor-h-39" data-mini="true">
+						<label for="preMonitor-h-39">Coordinate with electric and water cooperatives to repair damaged water and power lines</label>
+					</ul>	
+			</div>
+			
+			<div data-role="collapsible" data-theme="f" >
+				<h2>Box I</h2>
+					<ul data-role="listview" data-divider-theme="f">
+						<li data-role="list-divider"><strong>EVACUATION CENTER STANDARDS</strong></li>
+						<li data-role="list-divider">A. Stucture and Location:</li>
+						<input type="checkbox" name="preMonitor-i-1" id="preMonitor-i-1" data-mini="true">
+						<label for="preMonitor-i-1">Permanent and disaster-resillent evacuation centers (multi-purpose centers) at the province/municipality/city/barangay</label>
+						<input type="checkbox" name="preMonitor-i-2" id="preMonitor-i-2" data-mini="true">
+						<label for="preMonitor-i-2">Animals - Relief park (separate space or structure for livestock, domestic animals and crops)</label>
+						<input type="checkbox" name="preMonitor-i-3" id="preMonitor-i-3" data-mini="true">
+						<label for="preMonitor-i-3">Not in high-risk areas</label>
+						<input type="checkbox" name="preMonitor-i-4" id="preMonitor-i-4" data-mini="true">
+						<label for="preMonitor-i-4">Accessbility for people</label>
+						<input type="checkbox" name="preMonitor-i-5" id="preMonitor-i-5" data-mini="true">
+						<label for="preMonitor-i-5">At most six (6) families per evacation room (40m<sup>2</sup>)</label>
+						
+						<li data-role="list-divider">B. Amenities:</li>
+						<input type="checkbox" name="preMonitor-i-6" id="preMonitor-i-6" data-mini="true">
+						<label for="preMonitor-i-6">Toilet for men and women (1:50)/Additional portable toilets</label>
+						
+						<input type="checkbox" name="preMonitor-i-7" id="preMonitor-i-7" data-mini="true">
+						<label for="preMonitor-i-7">Separate toilets for Persons With Disabilities (PWDs)</label>
+						<input type="checkbox" name="preMonitor-i-8" id="preMonitor-i-8" data-mini="true">
+						<label for="preMonitor-i-8">Consider designated area for LGBTs and assigned bathrooms (if available)</label>
+						<input type="checkbox" name="preMonitor-i-9" id="preMonitor-i-9" data-mini="true">
+						<label for="preMonitor-i-9">Well-lighted</label>
+						<input type="checkbox" name="preMonitor-i-10" id="preMonitor-i-10" data-mini="true">
+						<label for="preMonitor-i-10">Can be locked from inside</label>
+						<input type="checkbox" name="preMonitor-i-13" id="preMonitor-i-13" data-mini="true">
+						<label for="preMonitor-i-13">With proper ventilation</label>
+						<input type="checkbox" name="preMonitor-i-14" id="preMonitor-i-14" data-mini="true">
+						<label for="preMonitor-i-14">With water supply, pail/dipper and soap</label>
+						<li data-role="list-divider"></li>
+						<input type="checkbox" name="preMonitor-i-15" id="preMonitor-i-15" data-mini="true">
+						<label for="preMonitor-i-15">Generator sets</label>
+						<input type="checkbox" name="preMonitor-i-16" id="preMonitor-i-16" data-mini="true">
+						<label for="preMonitor-i-16">Child, woman, elderly, and PWDs-friendly space</label>
+						<input type="checkbox" name="preMonitor-i-17" id="preMonitor-i-17" data-mini="true">
+						<label for="preMonitor-i-17">Assembly area for relief distribution</label>
+						<input type="checkbox" name="preMonitor-i-18" id="preMonitor-i-18" data-mini="true">
+						<label for="preMonitor-i-18">Consider designating couples/conjugal room</label>
+						<input type="checkbox" name="preMonitor-i-19" id="preMonitor-i-19" data-mini="true">
+						<label for="preMonitor-i-19">Community kitchen</label>
+						<input type="checkbox" name="preMonitor-i-20" id="preMonitor-i-20" data-mini="true">
+						<label for="preMonitor-i-20">Stove/fuel</label>
+						<input type="checkbox" name="preMonitor-i-21" id="preMonitor-i-21" data-mini="true">
+						<label for="preMonitor-i-21">Kitchen utensils</label>
+						<input type="checkbox" name="preMonitor-i-22" id="preMonitor-i-22" data-mini="true">
+						<label for="preMonitor-i-22">Water facilities</label>
+						<input type="checkbox" name="preMonitor-i-23" id="preMonitor-i-23" data-mini="true">
+						<label for="preMonitor-i-23">Laundry Space</label>
+						<input type="checkbox" name="preMonitor-i-24" id="preMonitor-i-24" data-mini="true">
+						<label for="preMonitor-i-24">Boat garage for coastal barangays</label>
+						<li data-role="list-divider">C. Services:</li>
+						<li data-role="list-divider">On Health and Nutrition</li>
+						<input type="checkbox" name="preMonitor-i-25" id="preMonitor-i-25" data-mini="true">
+						<label for="preMonitor-i-25">Health Stations/Clinic</label>
+						<input type="checkbox" name="preMonitor-i-26" id="preMonitor-i-26" data-mini="true">
+						<label for="preMonitor-i-26">Breastfeeding Room</label>
+						<input type="checkbox" name="preMonitor-i-27" id="preMonitor-i-27" data-mini="true">
+						<label for="preMonitor-i-27">Basic drugs, medicines, medical supplies and equipment inside the evacuation center</label>
+						<input type="checkbox" name="preMonitor-i-28" id="preMonitor-i-28" data-mini="true">
+						<label for="preMonitor-i-28">Medical Team: doctors, nurses, midwives</label>
+						<input type="checkbox" name="preMonitor-i-29" id="preMonitor-i-29" data-mini="true">
+						<label for="preMonitor-i-29">Hygiene kit (toothpaste, toothbrush, soap, shampoo, sanitary pad, diaper)</label>
+						<input type="checkbox" name="preMonitor-i-30" id="preMonitor-i-30" data-mini="true">
+						<label for="preMonitor-i-30">Contraceptives (at least make this available when needed/inform the evacuees that contraceptives are available)</label>
+						<input type="checkbox" name="preMonitor-i-31" id="preMonitor-i-31" data-mini="true">
+						<label for="preMonitor-i-31">Crew (Emergency Medical Services)</label>
+						<input type="checkbox" name="preMonitor-i-32" id="preMonitor-i-32" data-mini="true">
+						<label for="preMonitor-i-32">Trained psycho-social support responders (two per LGU-PCMB) c/o DOH</label>
+						
+						<li data-role="list-divider">On Security</li>
+						<input type="checkbox" name="preMonitor-i-33" id="preMonitor-i-33" data-mini="true">
+						<label for="preMonitor-i-33">1 Police Officer</label>
+						<input type="checkbox" name="preMonitor-i-34" id="preMonitor-i-34" data-mini="true">
+						<label for="preMonitor-i-34">20 Tanods (BPAT/BERT)</label>
+						<input type="checkbox" name="preMonitor-i-35" id="preMonitor-i-35" data-mini="true">
+						<label for="preMonitor-i-35">Designated parking space/helibase</label>
+						
+					</ul>	
+			</div>
+			
+		</div>
+	</div>
+	<div data-role="footer" data-position="fixed">
+		<div data-role="navbar" >
+			<ul>
+				<li><button data-icon="check" id="btnSubmitPreMonitor">SUBMIT</button></li>
+			</ul>
+		</div>
+	</div>
+	
+	<!-- under construction popUp -->
+	
+	<div data-role="popup" id="popupUnderConstruction2">
+	<div data-role="header" data-theme="d">
+		<h1>Note</h1>
+	</div>
+	<p>This function is still  under construction and will be available on the next update</p>
+	</div>
+	
+	<!-- Data Submitted Pop Up-->
+	<div data-role="popup" id="popupAfterDataSubmit" data-theme="d"  style="width:100%;margin-left: auto; margin-right:auto;">
+				<div data-role="header">
+					<h1>SUBMITTED</h1>
+				</div>
+				<p id="popuptextDataSubmit" style="text-align: center;"></p>
+	</div>
+	
+	<!-- Logout Are You Sure-->
+	<div data-role="popup" id="popupAfterLogoutSure" data-theme="d"  style="width:100%;margin-left: auto; margin-right:auto;">
+				<div data-role="header">
+					<h1>Are you sure?</h1>
+				</div>
+				<div role="main" class="ui-content">
+				<p id="popuptextLogoutSure" style="text-align: center;"></p>
+				</div>
+	</div>
+	
+	<!-- Logout Pop Up-->
+	<div data-role="popup" id="popupAfterLogout" data-theme="d"  style="width:100%;margin-left: auto; margin-right:auto;">
+				<div data-role="header">
+					<h1>Logging Out...</h1>
+				</div>
+				<p id="popuptextLogout" style="text-align: center;"></p>
+	</div>
+</div>
+
+</body>
+</html>
