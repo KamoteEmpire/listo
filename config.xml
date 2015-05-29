@@ -8,6 +8,7 @@
 		<gap:platform name="android" />
 	</gap:platforms>
 	
+	<gap:plugin name="com.pushwoosh.plugins.pushwoosh" source="plugins.cordova.io" />
 	<icon src="icon.png" />
 	<icon src="images/icon_36.png" gap:platform="android" gap:qualifier="ldpi" />
 	<icon src="images/icon_48.png" gap:platform="android" gap:qualifier="mdpi" />
@@ -21,6 +22,9 @@
 	
 	<access origin="*" subdomains="true" />
 	<access uri="*" subdomains="true" />
+	
+	<access origin="*"/> <!-- allow all pages, use for development -->
+<access origin="*.pushwoosh.com"/> <!-- allow pushwoosh service -->
 	<feature name="http://api.phonegap.com/1.0/network"/>
 	<feature name="http://api.phonegap.com/1.0/camera"/>
 	<feature name="http://api.phonegap.com/1.0/file"/>
