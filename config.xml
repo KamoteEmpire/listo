@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="ph.iligtas.listo" version="1.0">
 
-	<name>L!STO</name>
+	<name>LISTO</name>
 	<description>Tamang Paghahanda, Tamang Aksyon!</description>
 	<author>Team GC-CCS</author>
 	<gap:platforms>
